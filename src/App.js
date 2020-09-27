@@ -22,12 +22,17 @@ export class App extends Component {
           <button>submit</button>
         </form>
         <ul>
-          {this.state.items.map(item =>(
-            <li key={item.date}>{item.text}</li>
+          {this.state.items.map((item,i) =>(
+            <li key={i}>{item.text} <button  onClick={e => this.removeItem(i)} >x</button> </li>
           ))}
         </ul>
       </div>
     )
+  }
+  removeItem = item =>{
+    this.state.items.splice(item,1
+      )
+    this.setState({items:this.state.items})
   }
   handleChange = e =>{
     this.setState({
